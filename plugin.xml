@@ -5,8 +5,8 @@
   <license>MIT</license>
   <author>sunlu</author>
   <keywords>cordova, push, chinese,xgpush</keywords>
-  <repo>https://github.com/sunlu/cordova-plugin-xgpush.git</repo>
-  <issue>https://github.com/sunlu/cordova-plugin-xgpush/issues</issue>
+  <repo>https://github.com/osvlabs/cordova-plugin-xgpush.git</repo>
+  <issue>https://github.com/osvlabs/cordova-plugin-xgpush/issues</issue>
    
   <preference name="ACCESS_ID" />
   <preference name="ACCESS_KEY" />
@@ -34,6 +34,17 @@
   </platform>
   <!-- ios -->
   <platform name="ios">
+   <config-file target="*-Info.plist" parent="UIBackgroundModes">
+      <array>
+        <string>remote-notification</string>
+      </array>
+    </config-file>
+    <config-file target="*-Debug.plist" parent="aps-environment">
+      <string>development</string>
+    </config-file>
+    <config-file target="*-Release.plist" parent="aps-environment">
+      <string>production</string>
+    </config-file>
     <config-file target="config.xml" parent="/*">
       <feature name="XGPush">
         <param name="ios-package" value="CDVXGPushPlugin" />

@@ -21,7 +21,6 @@ import android.content.IntentFilter;
 import android.text.TextUtils;
 import android.util.Log;
 
-
 public class XGPushPlugin extends CordovaPlugin {
 
     private Context context;
@@ -32,19 +31,20 @@ public class XGPushPlugin extends CordovaPlugin {
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
         context = cordova.getActivity().getApplicationContext();
+        XGPushConfig.enableOtherPush(context, true);
         // XGPushConfig.setMiPushAppId(context, 小米appid);
         // XGPushConfig.setMiPushAppKey(context, 小米appkey);
         // XGPushConfig.setHuaweiDebug(true);
         // XGPushConfig.setMzPushAppId(context, 魅族appid);
         // XGPushConfig.setMzPushAppKey(context, 魅族appkey);
-        // XGPushConfig.enableOtherPush(context, true);
-    
+
     }
 
     @Override
     public boolean execute(String action, JSONArray data, CallbackContext callbackContext) throws JSONException {
 
-        LOG.d(TAG, "exec : action = " + action + ", callbackId = " + (callbackContext != null ? callbackContext.getCallbackId() : "null"));
+        LOG.d(TAG, "exec : action = " + action + ", callbackId = "
+                + (callbackContext != null ? callbackContext.getCallbackId() : "null"));
 
         if ("addListener".equals(action)) {
             addListener(callbackContext);
@@ -82,7 +82,7 @@ public class XGPushPlugin extends CordovaPlugin {
             setAccessInfo(data, callbackContext);
             return true;
         }
-        if("getLaunchInfo".equals(action)){
+        if ("getLaunchInfo".equals(action)) {
             getLaunchInfo(callbackContext);
             return true;
         }
@@ -113,15 +113,15 @@ public class XGPushPlugin extends CordovaPlugin {
 
         super.onResume(multitasking);
 
-        //if(receiver != null){
-        //    receiver.onResume(context, cordova);
-        //}
+        // if(receiver != null){
+        // receiver.onResume(context, cordova);
+        // }
     }
 
     @Override
     public void onPause(boolean multitasking) {
         super.onPause(multitasking);
-        //Log.d(TAG, "onActivityStoped : multitasking=" + multitasking);
+        // Log.d(TAG, "onActivityStoped : multitasking=" + multitasking);
         XGPushManager.onActivityStoped(this.cordova.getActivity());
     }
 
@@ -133,7 +133,7 @@ public class XGPushPlugin extends CordovaPlugin {
         }
     }
 
-    /////////////////------API---------////////////////////
+    ///////////////// ------API---------////////////////////
 
     private void registerPush(final JSONArray data, final CallbackContext callback) {
 
@@ -158,7 +158,6 @@ public class XGPushPlugin extends CordovaPlugin {
             }
         });
     }
-
 
     private void unRegisterPush(final CallbackContext callback) {
         cordova.getThreadPool().execute(new Runnable() {
@@ -235,7 +234,7 @@ public class XGPushPlugin extends CordovaPlugin {
         }
     }
 
-    private void getLaunchInfo(CallbackContext callback){
+    private void getLaunchInfo(CallbackContext callback) {
         XGPushClickedResult click = XGPushManager.onActivityStarted(cordova.getActivity());
         callback.success(XGPushReceiver.convertClickedResult(click));
     }
