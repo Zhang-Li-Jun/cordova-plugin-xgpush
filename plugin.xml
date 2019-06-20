@@ -20,6 +20,7 @@
   <!-- android -->
   <platform name="android">
     <hook type="after_plugin_add" src="scripts/after_plugin_add.js" />
+    <hook type="before_plugin_uninstall" src="scripts/before_plugin_uninstall.js" />
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="XGPush">
         <param name="android-package" value="net.sunlu.xgpush.XGPushPlugin" />
