@@ -25,6 +25,8 @@ module.exports = function (context) {
         var data = fs.readFileSync(file, 'utf-8');
         data = data.replace('ANDROID_ACCESS_ID', context.opts.cli_variables.ACCESS_ID);
         data = data.replace('ANDROID_ACCESS_KEY', context.opts.cli_variables.ACCESS_KEY);
+        data = data.replace('xiaomi_package_name', context.opts.cli_variables.PACKAGE_NAME);
+        data = data.replace('hw_appid', context.opts.cli_variables.HW_APPID);
         fs.writeFile(file, data, 'utf-8', function (err) {
             if (err) {
                 return console.log("Insert android access_id and access_key error" + err);
@@ -40,7 +42,7 @@ module.exports = function (context) {
         var str = strs[strs.length - 1];
         return str.substr(0, str.length - 1) + "-build-extras.gradle";
     }
-    searchFile(getFileName(),'platforms/android/cordova-plugin-xgpush');
+    searchFile(getFileName(), 'platforms/android/cordova-plugin-xgpush');
 
     helper.restoreRootBuildGradle();
     helper.modifyRootBuildGradle();

@@ -31,13 +31,12 @@ ios     | 3.3.1
 打开控制台，进入 Cordova 项目目录，输入：
 
 ```bash
-cordova plugin add https://github.com/huangliop/cordova-plugin-xgpush-hl.git --variable ACCESS_ID="Your ANDROID ID" --variable ACCESS_KEY="Your ANDROID Key" --variable IOS_ACCESS_ID="Your ID" --variable IOS_ACCESS_KEY="Your Key" 
+cordova plugin add https://github.com/huangliop/cordova-plugin-xgpush-hl.git --variable ACCESS_ID="Your ANDROID ID" --variable ACCESS_KEY="Your ANDROID Key" --variable IOS_ACCESS_ID="Your ID" --variable IOS_ACCESS_KEY="Your Key"  --variable PACKAGE_NAME="Xiao mi package name" --variable HW_APPID="HW appid"
 ```
 ## iOS 特别处理
-
-iOS版本需要在xCode里面手动开启，[Push Notifications]和[Background Modes]。方法如下
-[http://xg.qq.com/docs/ios_access/ios_access_guide.html](http://xg.qq.com/docs/ios_access/ios_access_guide.html)
-
+~~iOS版本需要在xCode里面手动开启，[Push Notifications]和[Background Modes]。方法如下
+[http://xg.qq.com/docs/ios_access/ios_access_guide.html](http://xg.qq.com/docs/ios_access/ios_access_guide.html)~~
+> 自动开启了
 ## 示例
 ```js
       document.addEventListener("deviceready", onDeviceReady, false);

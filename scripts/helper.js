@@ -25,7 +25,7 @@ function addDependencies (buildGradle) {
   var match = buildGradle.match(/^(\s*)classpath 'com.android.tools.build(.*)/m);
   var whitespace = match[1];
   // modify the line to add the necessary dependencies
-  var googlePlayDependency = whitespace + 'classpath \'com.google.gms:google-services:3.1.0\' // google-services dependency from cordova-plugin-firebase';
+  var googlePlayDependency = whitespace + 'classpath \'com.google.gms:google-services:4.2.0\' // google-services dependency from cordova-plugin-firebase';
   var modifiedLine = match[0] + '\n' + googlePlayDependency;
 
   // modify the actual line

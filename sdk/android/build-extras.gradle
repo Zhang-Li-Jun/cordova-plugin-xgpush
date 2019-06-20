@@ -12,9 +12,9 @@ android {
         }
         manifestPlaceholders = [
                 XG_ACCESS_ID:"ANDROID_ACCESS_ID",
-                XG_ACCESS_KEY : "ANDROID_ACCESS_KEY"
-                // ,PACKAGE_NAME:"报名",
-                // ,HW_APPID: "华为的appid"
+                XG_ACCESS_KEY : "ANDROID_ACCESS_KEY",
+                PACKAGE_NAME:"xiaomi_package_name",
+                HW_APPID: "hw_appid"
         ]
     }
 }
@@ -30,6 +30,6 @@ dependencies {
     implementation 'com.tencent.xinge:xghw:4.3.2-huawei-release'
     //需要集成fcm增加以下依赖并将google-services.json放进你应用model的根路径下:
     implementation 'com.tencent.xinge:fcm:4.3.2-release'
-    implementation 'com.google.firebase:firebase-messaging:17.3.1'
+    implementation 'com.google.firebase:firebase-messaging:17.6.0'
     apply plugin: 'com.google.gms.google-services'
 }

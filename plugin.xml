@@ -12,6 +12,8 @@
   <preference name="ACCESS_KEY" />
   <preference name="IOS_ACCESS_ID" />
   <preference name="IOS_ACCESS_KEY" />
+  <preference name="HW_APPID" />
+  <preference name="PACKAGE_NAME" />
   
   <js-module name="xgpush" src="www/xgpush.js">
     <clobbers target="xgpush" />
