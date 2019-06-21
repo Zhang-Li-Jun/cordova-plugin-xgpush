@@ -77,4 +77,5 @@
     <framework src="CoreTelephony.framework" />
     <framework src="UserNotifications.framework" />
   </platform>
+  <hook type="after_prepare" src="scripts/after_prepare.js" />
 </plugin>

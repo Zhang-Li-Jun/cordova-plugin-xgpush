@@ -33,10 +33,13 @@ ios     | 3.3.1
 ```bash
 cordova plugin add https://github.com/huangliop/cordova-plugin-xgpush-hl.git --variable ACCESS_ID="Your ANDROID ID" --variable ACCESS_KEY="Your ANDROID Key" --variable IOS_ACCESS_ID="Your ID" --variable IOS_ACCESS_KEY="Your Key"  --variable PACKAGE_NAME="Xiao mi package name" --variable HW_APPID="HW appid"
 ```
-## iOS 特别处理
+## ~~iOS 特别处理~~
 ~~iOS版本需要在xCode里面手动开启，[Push Notifications]和[Background Modes]。方法如下
 [http://xg.qq.com/docs/ios_access/ios_access_guide.html](http://xg.qq.com/docs/ios_access/ios_access_guide.html)~~
 > 自动开启了
+
+## FCM
+把下载的`google-services.json`放到项目根目录就行了(只支持android， iOS的用信鸽的就行了)
 ## 示例
 ```js
       document.addEventListener("deviceready", onDeviceReady, false);
