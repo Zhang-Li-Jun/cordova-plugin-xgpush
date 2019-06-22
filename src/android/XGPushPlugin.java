@@ -1,5 +1,8 @@
 package net.sunlu.xgpush;
 
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaPlugin;
@@ -32,12 +35,26 @@ public class XGPushPlugin extends CordovaPlugin {
         super.initialize(cordova, webView);
         context = cordova.getActivity().getApplicationContext();
         XGPushConfig.enableOtherPush(context, true);
-        // XGPushConfig.setMiPushAppId(context, 小米appid);
-        // XGPushConfig.setMiPushAppKey(context, 小米appkey);
-        // XGPushConfig.setHuaweiDebug(true);
+        String xmId = "";
+        String xmKey = "";
+        try {
+            ApplicationInfo applicationInfo = cordova.getActivity().getPackageManager()
+                    .getApplicationInfo(cordova.getActivity().getPackageName(), PackageManager.GET_META_DATA);
+            Bundle bundle = applicationInfo.metaData;
+            xmId = bundle.getString("XM_APPID");
+            xmKey = bundle.getString("XM_APPKEY");
+            Log.d("Vitta", xmId);
+            Log.d("Vitta", xmKey);
+        } catch (PackageManager.NameNotFoundException e) {
+            Log.e(TAG, "Failed to load meta-data, NameNotFound: " + e.getMessage());
+        } catch (NullPointerException e) {
+            Log.e(TAG, "Failed to load meta-data, NullPointer: " + e.getMessage());
+        }
+        XGPushConfig.setHuaweiDebug(true);
+        XGPushConfig.setMiPushAppId(context, xmId);
+        XGPushConfig.setMiPushAppKey(context, xmKey);
         // XGPushConfig.setMzPushAppId(context, 魅族appid);
         // XGPushConfig.setMzPushAppKey(context, 魅族appkey);
-
     }
 
     @Override

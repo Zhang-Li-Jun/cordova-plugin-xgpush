@@ -14,6 +14,8 @@
   <preference name="IOS_ACCESS_KEY" />
   <preference name="HW_APPID" />
   <preference name="PACKAGE_NAME" />
+  <preference name="XM_APPID" />
+  <preference name="XM_APPKEY" />
   
   <js-module name="xgpush" src="www/xgpush.js">
     <clobbers target="xgpush" />
@@ -27,6 +29,10 @@
       <feature name="XGPush">
         <param name="android-package" value="net.sunlu.xgpush.XGPushPlugin" />
       </feature>
+    </config-file>
+    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+        <meta-data android:name="XM_APPID" android:value="\$XM_APPID" />
+        <meta-data android:name="XM_APPKEY" android:value="\$XM_APPKEY" />
     </config-file>
 
     <source-file src="src/android/XGPushPlugin.java" target-dir="src/net/sunlu/xgpush" />
