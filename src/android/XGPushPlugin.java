@@ -50,6 +50,7 @@ public class XGPushPlugin extends CordovaPlugin {
         } catch (NullPointerException e) {
             Log.e(TAG, "Failed to load meta-data, NullPointer: " + e.getMessage());
         }
+        XGPushConfig.enableFcmPush(context, true);
         XGPushConfig.setHuaweiDebug(true);
         XGPushConfig.setMiPushAppId(context, xmId);
         XGPushConfig.setMiPushAppKey(context, xmKey);
