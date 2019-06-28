@@ -5,7 +5,7 @@ var exec = require('cordova/exec'),
 channel.createSticky('onCordovaXGPushReady');
 channel.waitForInitialization('onCordovaXGPushReady');
 
-function XGPush() {
+function XGPush () {
 
     var me = this;
 
@@ -40,7 +40,7 @@ function XGPush() {
     };
 
     this.setTag = function (tagName) {
-        exec(null,null, "XGPush", "setTag", [tagName]);
+        exec(null, null, "XGPush", "setTag", [tagName]);
     };
 
     this.deleteTag = function (tagName) {
@@ -56,12 +56,12 @@ function XGPush() {
     };
 
     this.getLaunchInfo = function (successCallback) {
-        exec(function(event){
-            if(event.customContent&&typeof event.customContent ==="string"){
+        exec(function (event) {
+            if (event && event.customContent && typeof event.customContent === "string") {
                 try {
-                    var objs=JSON.parse(event.customContent);
-                    event.customContent=objs;
-                    event.customContent=Object.assign(...objs);
+                    var objs = JSON.parse(event.customContent);
+                    event.customContent = objs;
+                    event.customContent = Object.assign(...objs);
                 } catch (error) {
 
                 }
@@ -77,7 +77,7 @@ function XGPush() {
     this.setAccessInfo = function (accessId, accessKey, successCallback, errorCallback) {
         exec(successCallback, errorCallback, "XGPush", "setAccessInfo", [accessId, accessKey]);
     };
-    
+
     this.stopNotification = function () {
         exec(null, null, "XGPush", "stopNotification", []);
     };
@@ -88,20 +88,20 @@ function XGPush() {
                 console.log("[XGPush] Event = " + event.type + ": ", event);
                 if (event && (event.type in me.channels)) {
                     //格式化自定义数据集
-                    if(event.customContent&&typeof event.customContent ==="string"){
+                    if (event.customContent && typeof event.customContent === "string") {
                         try {
-                            var objs=JSON.parse(event.customContent);
-                            event.customContent=objs;
-                            event.customContent=Object.assign(...objs);
+                            var objs = JSON.parse(event.customContent);
+                            event.customContent = objs;
+                            event.customContent = Object.assign(...objs);
                         } catch (error) {
-    
+
                         }
                     }
                     me.channels[event.type].fire(event);
                 }
             },
             null, "XGPush", "addListener", []
-            );
+        );
 
         me.registerPush(null, function (info) {
             console.log("[XGPush] RegisterPush: ", info);
