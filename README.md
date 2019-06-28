@@ -117,6 +117,7 @@ xgpush.on("click", function(data) {
    * {
    *   activity:"com.changan.test.push.MainActivity", //android Only
    * content:"这是内容",
+   * actionType: 0 // 0是点击，2是删除通知 (iOS没有这个)
    * customContent:"{"vvva":"789"}",
    * msgId:101217419,
    * notifactionId:0,   //android Only
