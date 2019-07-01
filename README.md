@@ -106,7 +106,6 @@ xgpush.registerPush("account", function(event) {}, function(event) {});
 | unRegister | 反注册事件         |
 | message    | 接收到新消息时解法 |
 | click      | 通知被点击         |
-| on         | 通知到达           |
 | show       | 通知成功显示       |
 | deleteTag  | 删除标签事件       |
 | setTag     | 设计标签事件       |

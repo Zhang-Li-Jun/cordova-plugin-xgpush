@@ -308,7 +308,7 @@ static CDVInvokedUrlCommand *currentCommand = nil;
       @"subtitle" : content.subtitle ? content.subtitle : @"",
       @"customContent" : customContent
     };
-    [self sendMessage:@"on" data:data];
+    [self sendMessage:@"show" data:data];
   }
 }
 
