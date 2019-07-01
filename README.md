@@ -23,7 +23,7 @@
 
 | SDK     | version |
 | ------- | ------- |
-| android | 4.2.0   |
+| android | 4.3.2   |
 | ios     | 3.3.1   |
 
 ## 安装方法
@@ -31,7 +31,7 @@
 打开控制台，进入 Cordova 项目目录，输入：
 
 ```bash
-cordova plugin add https://github.com/huangliop/cordova-plugin-xgpush-hl.git --variable ACCESS_ID="Your ANDROID ID" --variable ACCESS_KEY="Your ANDROID Key" --variable IOS_ACCESS_ID="Your ID" --variable IOS_ACCESS_KEY="Your Key"  --variable PACKAGE_NAME="Xiao mi package name" --variable XM_APPID="XMID" --variable XM_APPKEY="XMKEY" --variable HW_APPID="HW appid"
+cordova plugin add @osvlabs/cordova-plugin-xgpush@latest --variable ACCESS_ID="Your ANDROID ID" --variable ACCESS_KEY="Your ANDROID Key" --variable IOS_ACCESS_ID="Your ID" --variable IOS_ACCESS_KEY="Your Key"  --variable PACKAGE_NAME="Xiao mi package name" --variable XM_APPID="XMID" --variable XM_APPKEY="XMKEY" --variable HW_APPID="HW appid" --variable MZ_APPID="MZ_ID" --variable MZ_APPKEY="MZ_KEY"
 ```
 
 ## ~~iOS 特别处理~~
@@ -82,7 +82,7 @@ function onDeviceReady() {
 | 方法                                                   | 方法名                                                                                                   | 参数说明                                                  | 成功回调                          | 失败回调                                    |
 | ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | --------------------------------- | ------------------------------------------- |
 | registerPush(account,success,error)                    | 绑定账号注册                                                                                             | account：绑定的账号，绑定后可以针对账号发送推送消息       | {data:"设备的 token"}             | {data:"",code:"",message:""} //android Only |
-| unRegisterPush(account, success,error)                          | 反注册                                                                                                   | account：绑定的账号                                       | {flag:0}                          | {flag:0}                                    |
+| unRegisterPush(account, success,error)                 | 反注册                                                                                                   | account：绑定的账号                                       | {flag:0}                          | {flag:0}                                    |
 | setTag(tagName)                                        | 设置标签                                                                                                 | tagName：待设置的标签名称                                 |
 | deleteTag(tagName)                                     | 删除标签                                                                                                 | tagName：待设置的标签名称                                 |
 | addLocalNotification(type,title,content,success,error) | 添加本地通知                                                                                             | type:1 通知，2 消息 title:标题 content:内容               |
@@ -106,11 +106,10 @@ xgpush.registerPush("account", function(event) {}, function(event) {});
 | unRegister | 反注册事件         |
 | message    | 接收到新消息时解法 |
 | click      | 通知被点击         |
-| on         | 通知到达          |
+| on         | 通知到达           |
 | show       | 通知成功显示       |
 | deleteTag  | 删除标签事件       |
 | setTag     | 设计标签事件       |
-
 
 ```js
 xgpush.on("click", function(data) {

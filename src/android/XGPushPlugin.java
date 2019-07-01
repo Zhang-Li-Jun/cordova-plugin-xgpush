@@ -37,12 +37,16 @@ public class XGPushPlugin extends CordovaPlugin {
         XGPushConfig.enableOtherPush(context, true);
         String xmId = "";
         String xmKey = "";
+        String mzId = "";
+        String mzKey = "";
         try {
             ApplicationInfo applicationInfo = cordova.getActivity().getPackageManager()
                     .getApplicationInfo(cordova.getActivity().getPackageName(), PackageManager.GET_META_DATA);
             Bundle bundle = applicationInfo.metaData;
             xmId = bundle.getString("XM_APPID");
             xmKey = bundle.getString("XM_APPKEY");
+            mzId = bundle.getString("MZ_APPID");
+            mzKey = bundle.getString("MZ_APPKEY");
             Log.d("Vitta", xmId);
             Log.d("Vitta", xmKey);
         } catch (PackageManager.NameNotFoundException e) {
@@ -54,8 +58,8 @@ public class XGPushPlugin extends CordovaPlugin {
         XGPushConfig.setHuaweiDebug(true);
         XGPushConfig.setMiPushAppId(context, xmId);
         XGPushConfig.setMiPushAppKey(context, xmKey);
-        // XGPushConfig.setMzPushAppId(context, 魅族appid);
-        // XGPushConfig.setMzPushAppKey(context, 魅族appkey);
+        XGPushConfig.setMzPushAppId(context, mzId);
+        XGPushConfig.setMzPushAppKey(context, mzKey);
     }
 
     @Override
