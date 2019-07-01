@@ -17,6 +17,7 @@ function XGPush () {
         'show': channel.create('show'),
         'deleteTag': channel.create('deleteTag'),
         'setTag': channel.create('setTag'),
+        'on': channel.create('on')
     };
 
     this.on = function (type, func) {
