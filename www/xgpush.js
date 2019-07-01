@@ -35,8 +35,8 @@ function XGPush () {
         exec(successCallback, errorCallback, "XGPush", "registerPush", [account]);
     };
 
-    this.unRegisterPush = function (successCallback, errorCallback) {
-        exec(successCallback, errorCallback, "XGPush", "unRegisterPush", []);
+    this.unRegisterPush = function (account, successCallback, errorCallback) {
+        exec(successCallback, errorCallback, "XGPush", "unRegisterPush", [account]);
     };
 
     this.setTag = function (tagName) {

@@ -2,12 +2,11 @@
 
 #import "XGPush.h"
 
+typedef void (^CallbackBlock)(void);
 
-typedef void (^CallbackBlock) (void);
+@interface CDVXGPushPlugin : CDVPlugin
 
-@interface CDVXGPushPlugin: CDVPlugin
-
-+(void)setLaunchOptions:(NSDictionary *)theLaunchOptions;
++ (void)setLaunchOptions:(NSDictionary *)theLaunchOptions;
 
 /*
  notification
@@ -16,27 +15,27 @@ typedef void (^CallbackBlock) (void);
 /*
  plugin
  */
-- (void) startApp:(uint32_t)assessId key:(NSString*) accessKey;
+- (void)startApp:(uint32_t)assessId key:(NSString *)accessKey;
 
-- (void) didFailToRegisterForRemoteNotificationsWithError:(NSError*)err;
+- (void)didFailToRegisterForRemoteNotificationsWithError:(NSError *)err;
 
-- (void) sendMessage:(NSString*) type data:(NSDictionary*)dict;
+- (void)sendMessage:(NSString *)type data:(NSDictionary *)dict;
 
-- (void) addListener:(CDVInvokedUrlCommand*)command;
-- (void) registerPush:(CDVInvokedUrlCommand*)command;
-- (void) unRegisterPush:(CDVInvokedUrlCommand*)command;
-- (void) getLaunchInfo:(CDVInvokedUrlCommand*)command;
+- (void)addListener:(CDVInvokedUrlCommand *)command;
+- (void)registerPush:(CDVInvokedUrlCommand *)command;
+- (void)unRegisterPush:(CDVInvokedUrlCommand *)command;
+- (void)getLaunchInfo:(CDVInvokedUrlCommand *)command;
 
-- (void) setTag:(CDVInvokedUrlCommand*)command;
-- (void) deleteTag:(CDVInvokedUrlCommand*)command;
+- (void)setTag:(CDVInvokedUrlCommand *)command;
+- (void)deleteTag:(CDVInvokedUrlCommand *)command;
 
-- (void) addLocalNotification:(CDVInvokedUrlCommand*)command;
+- (void)addLocalNotification:(CDVInvokedUrlCommand *)command;
 
-- (void) enableDebug:(CDVInvokedUrlCommand*)command;
-- (void) getToken:(CDVInvokedUrlCommand*)command;
-- (void) setAccessInfo:(CDVInvokedUrlCommand*)command;
-- (void) stopNotification:(CDVInvokedUrlCommand*)command;
+- (void)enableDebug:(CDVInvokedUrlCommand *)command;
+- (void)getToken:(CDVInvokedUrlCommand *)command;
+- (void)setAccessInfo:(CDVInvokedUrlCommand *)command;
+- (void)stopNotification:(CDVInvokedUrlCommand *)command;
 
-@property (nonatomic, copy) NSString* callbackId;
+@property(nonatomic, copy) NSString *callbackId;
 
 @end
