@@ -42,7 +42,7 @@ module.exports = function (context) {
         var str = strs[strs.length - 1];
         return str.substr(0, str.length - 1) + "-build-extras.gradle";
     }
-    searchFile(getFileName(), 'platforms/android/cordova-plugin-xgpush');
+    searchFile(getFileName(), 'platforms/android/cordova-plugin-xgpush-osvlabs');
 
     helper.restoreRootBuildGradle();
     helper.modifyRootBuildGradle();
