@@ -103,13 +103,14 @@ function XGPush () {
             null, "XGPush", "addListener", []
         );
 
-        me.registerPush(null, function (info) {
-            console.log("[XGPush] RegisterPush: ", info);
-            channel.onCordovaXGPushReady.fire();
-        }, function (e) {
-            console.log("[ERROR] RegisterPush: ", e);
-            channel.onCordovaXGPushReady.fire();
-        });
+        channel.onCordovaXGPushReady.fire();
+        // me.registerPush(null, function (info) {
+        //     console.log("[XGPush] RegisterPush: ", info);
+        //     channel.onCordovaXGPushReady.fire();
+        // }, function (e) {
+        //     console.log("[ERROR] RegisterPush: ", e);
+        //     channel.onCordovaXGPushReady.fire();
+        // });
     });
 }
 
