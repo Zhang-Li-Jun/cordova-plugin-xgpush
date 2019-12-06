@@ -21,7 +21,7 @@ android {
 
 dependencies {
     //增加以下依赖
-    implementation 'com.tencent.xinge:xinge:4.3.2-release'
+    implementation 'com.tencent.xinge:xinge:4.3.6-release'
     implementation 'com.tencent.wup:wup:1.0.0.E-Release'
     implementation 'com.tencent.jg:jg:1.1'
     implementation 'com.tencent.mid:mid:4.0.7-Release'
