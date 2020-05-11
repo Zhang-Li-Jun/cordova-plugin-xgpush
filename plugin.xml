@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<plugin xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-plugin-xgpush-osvlabs" version="4.2.8">
+<plugin xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-plugin-xgpush-osvlabs" version="5.0.0">
   <name>cordova-plugin-xgpush</name>
   <description>Tencent XGPush Plugin</description>
   <license>MIT</license>
@@ -74,15 +74,20 @@
     </config-file>
     <!-- Tencent XGPush SDK -->
     <header-file src="sdk/ios/XGPush.h" /> 
-    <source-file src="sdk/ios/libXG-SDK.a" framework="true" />
+    <header-file src="sdk/ios/XGPushPrivate.h" /> 
+    <header-file src="sdk/ios/XGForFreeVersion.h" /> 
+    <source-file src="sdk/ios/libXG-SDK-Cloud.a" framework="true" />
     <!-- Cordova Plugin -->
     <header-file src="src/ios/AppDelegate+CDVXGPush.h" />
     <source-file src="src/ios/AppDelegate+CDVXGPush.m" />
     <header-file src="src/ios/CDVXGPushPlugin.h" />
     <source-file src="src/ios/CDVXGPushPlugin.m" />
     <!-- Dependencies -->
+    <framework src="sdk/ios/XGMTACloud.framework" custom="true" />
     <framework src="libz.tbd" />
-    <framework src="libsqlite3.0.tbd" />
+    <framework src="CoreData.framework" />
+    <framework src="CFNetwork.framework" />
+    <framework src="libc++.tbd" />
     <framework src="SystemConfiguration.framework" />
     <framework src="CoreTelephony.framework" />
     <framework src="UserNotifications.framework" />

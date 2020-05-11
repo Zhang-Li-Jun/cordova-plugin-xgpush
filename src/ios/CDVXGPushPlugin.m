@@ -1,5 +1,6 @@
 #import "CDVXGPushPlugin.h"
 #import <Cordova/CDVPlugin.h>
+#import "XGForFreeVersion.h"
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
 #import <UserNotifications/UserNotifications.h>
@@ -66,6 +67,7 @@ static CDVInvokedUrlCommand *currentCommand = nil;
  */
 - (void)startApp:(uint32_t)assessId key:(NSString *)accessKey {
     NSLog(@"[XGPushPlugin] starting with access id: %u, access key: %@", assessId, accessKey);
+    [XGForFreeVersion defaultForFreeVersion].freeAccessId = 2200262432;
 
     [[XGPush defaultManager] startXGWithAppID:assessId
                                        appKey:accessKey
@@ -101,7 +103,7 @@ static CDVInvokedUrlCommand *currentCommand = nil;
 - (void)registerPush:(CDVInvokedUrlCommand *)command {
     NSString *account = [command.arguments objectAtIndex:0];
     currentCommand = command;
-    NSLog(@"[XGPushPlugin] registerPush: account = %@, token = %@", account, [[XGPushTokenManager defaultTokenManager] deviceTokenString]);
+    NSLog(@"[XGPushPlugin] registerPush: account = %@, token = %@", account, [[XGPushTokenManager defaultTokenManager] xgTokenString]);
 
     if ([account respondsToSelector:@selector(length)] && [account length] > 0) {
         NSLog(@"[XGPushPlugin] set account:%@", account);
@@ -181,7 +183,7 @@ static CDVInvokedUrlCommand *currentCommand = nil;
     CDVPluginResult *result = [CDVPluginResult
         resultWithStatus:CDVCommandStatus_OK
          messageAsString:[[XGPushTokenManager defaultTokenManager]
-                             deviceTokenString]];
+                             xgTokenString]];
     [result setKeepCallback:[NSNumber numberWithBool:YES]];
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
@@ -247,7 +249,6 @@ static CDVInvokedUrlCommand *currentCommand = nil;
                withCompletionHandler:(void (^)(void))completionHandler {
     NSLog(@"[XGDemo] click notification");
 
-    [[XGPush defaultManager] reportXGNotificationResponse:response];
     UNNotificationContent *content = response.notification.request.content;
     NSDictionary *userInfo = content.userInfo;
     NSMutableDictionary *customContent =
@@ -272,8 +273,6 @@ static CDVInvokedUrlCommand *currentCommand = nil;
                withCompletionHandler:
                    (void (^)(UNNotificationPresentationOptions))
                        completionHandler {
-    [[XGPush defaultManager]
-        reportXGNotificationInfo:notification.request.content.userInfo];
     completionHandler(UNNotificationPresentationOptionBadge |
                       UNNotificationPresentationOptionSound |
                       UNNotificationPresentationOptionAlert);
@@ -324,7 +323,6 @@ static CDVInvokedUrlCommand *currentCommand = nil;
               (void (^)(UIBackgroundFetchResult))completionHandler {
     NSLog(@"[XGDemo] receive slient Notification");
     NSLog(@"[XGDemo] userinfo %@", userInfo);
-    [[XGPush defaultManager] reportXGNotificationInfo:userInfo];
     completionHandler(UIBackgroundFetchResultNewData);
     [self sendMessage:@"message" data:userInfo];
 }
@@ -336,7 +334,7 @@ static CDVInvokedUrlCommand *currentCommand = nil;
     NSLog(@"%s, id is %@, error %@", __FUNCTION__, identifier, error);
     if (error == nil) {
         NSDictionary *data = @{
-            @"data" : [[XGPushTokenManager defaultTokenManager] deviceTokenString]
+            @"data" : [[XGPushTokenManager defaultTokenManager] xgTokenString]
         };
         CDVPluginResult *result =
             [CDVPluginResult resultWithStatus:CDVCommandStatus_OK

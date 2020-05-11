@@ -1,3 +1,6 @@
+
+# [5.0] 迁移至腾讯移动推送
+
 # 腾讯信鸽推送 for Cordova
 
 **Android 已修改为 Gradle 打包方式。build 的时候可能会拉不下来，请百度‘jcenter 慢’解决**

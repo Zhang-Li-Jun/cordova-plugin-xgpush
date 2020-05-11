@@ -1,142 +1,253 @@
-XG IOS SDK ReleaseNote
-===================
-VERSION 3.3.1
+TPNS iOS SDK ReleaseNote
+
+VERSION 1.2.6.1
 -------------------------------------------
-1.支持富媒体展示
-2.新增批量账号接口
-3.适配 iOS12
+1. Improve stability, fix known issues caused by SDK
+
+版本 1.2.6.1
 -------------------------------------------
+1. 提升稳定性，修复已知问题
 
-
-VERSION 3.2.0
+VERSION 1.2.6.0
 -------------------------------------------
-1.增加账号和标签的清除接口
-2.增加账号和标签的替换接口
-3.增加iOS角标设置接口，实现角标+1
-4.增加消息统一接口
-5.其他问题修复
+1. Optimize access by adding a new registration callback
+2. Added TPNS channel to send messages
+3. Optimize data statistics
+4. Fixed known issues
 
-VERSION 3.1.1
+版本 1.2.6.0
 -------------------------------------------
-1. 更新账号解绑和绑定逻辑
-2. 增加账号类型
+1. 优化接入，新增注册回调方法
+2. 新增自建通道，支持TPNS通道下发消息
+3. 优化数据统计
+4. 修复已知问题
 
-
-VERSION 3.1.0
+VERSION 1.2.5.4
 -------------------------------------------
-1. 新增XGExtension静态库,统计推送消息回执
-2. 支持PushKit VoIP
-
-VERSION 3.0.2
+* Improve stability, fix known issues caused by SDK
+	
+版本 1.2.5.4
 -------------------------------------------
-1. 新增消息行为统计接口
-2. 简化设备token上报接口
-3. bug修复
+* 提升稳定性，修复已知问题
 
-VERSION 3.0.0
+VERSION 1.2.5.3
 -------------------------------------------
-1. 代码全面优化，简化接口、改善接口扩展性，精简了SDK的体积
-2. 自动兼容iOS系统版本变更
-3. 新增统计用户推送权限的关闭情况
+* Support unregistration tokens for free clusters to prevent repeated pushes
+* Support replacing duplicate messages in notification extensions
 
-
-VERSION 2.6.0
+版本 1.2.5.3
 -------------------------------------------
-* 调整注册接口
+* 支持对信鸽免费集群进行反注册token，防止重复推送
+* 新增支持在通知扩展中对重复的消息进行替换
 
-VERSION 2.5.0
+
+VERSION 1.2.5.2
 -------------------------------------------
-* 修改接口，去掉无用API
-* 增加静默推送以及推送样式
+* Improve accurate push, add enumeration of account types
+* Improve stability, optimize log IO exception and iOS10 receive message callback exception
 
-VERSION 2.4.9
+版本 1.2.5.2
 -------------------------------------------
-* 提高sdk稳定性
+* 提升精准推送，新增账号类型的枚举
+* 提升稳定性，优化日志IO异常和iOS10接收消息回调异常的问题
 
-VERSION 2.4.8
+
+VERSION 1.2.5.1
 -------------------------------------------
-* 增加ipv6支持
+* Simplified SDK access, delete reporting API, SDK handles it automatically
+* Improve stability, fix crash caused by SDK Cache
 
-VERSION 2.4.7
+版本 1.2.5.1
 -------------------------------------------
-* 加入客户端识别机制,减少重复推送发生的概率
+* 简化接入，删除上报接口，SDK自动处理
+* 提升稳定性，修复缓存模块引发的Crash问题
 
-VERSION 2.4.6
+
+VERSION 1.2.4.9
 -------------------------------------------
-* 完善回调调用机制,现在大多数情况下都会调用回调
+* Improve stability, fix crash caused by message statistics and a memory leak
+* Optimize SDK compatibility
 
-VERSION 2.4.5
+版本 1.2.4.9
 -------------------------------------------
-* 用XCode7.1重新编译
-* 提供XCode6.4兼容包
+* 提升稳定性，修复消息统计触发的崩溃问题和一处内存泄露问题
+* 优化提升SDK兼容性
 
-VERSION 2.4.4
+VERSION 1.2.4.8
 -------------------------------------------
-* 提高SDK弱网下的稳定性
-
-VERSION 2.4.3
+* Improve stability, fix crash caused by message statistics
+版本 1.2.4.8
 -------------------------------------------
-* 修复setTag不回调的问题
+* 提升稳定性，修复消息统计触发的崩溃问题
 
-VERSION 2.4.2
+VERSION 1.2.4.7
 -------------------------------------------
-* 增加XCode7 bitcode支持
-
-VERSION 2.4.0
+* Improve stability, fix crash caused by message statistics and log statistics
+版本 1.2.4.7
 -------------------------------------------
-* 优化网络连接
-* 解决已知的内存泄露问题
+* 提升稳定性，修复消息统计和日志记录触发的崩溃问题
 
-VERSION 2.3.2
+
+VERSION 1.2.4.6
 -------------------------------------------
-* 修复由于bundle id命名导致启动时crash的bug
+* Optimize SDK registration process and improve registration success rate
+* Optimize rich media push, support resources without suffix
+* Fix other known issues
 
-VERSION 2.3
+版本 1.2.4.6
 -------------------------------------------
-* 增加MD5函数调用前对AppKey的nil判断
-* 和XG共享deviceToken
+* 优化SDK注册流程，提升注册成功率
+* 优化富媒体推送，支持无后缀名的资源
+* 修复其他已知问题
 
- VERSION 2.2
+
+VERSION 1.2.4.5
 -------------------------------------------
-* 增加iOS8的支持。
-* 增加渠道，游戏大区上报。
-* 增加registerDeviceStr接口
+* Add SDK crash monitor
+* Optimize message arrival statistics
+* Optimize device count statistics
+* Optimize SDK I/O performance
+* Optimize and improve SDK stability
 
- VERSION 2.1.1
+
+版本 1.2.4.5
 -------------------------------------------
-* 优化注销逻辑
-* 增加registerDeviceStr接口
+* SDK增加Crash监控
+* 优化抵达数据统计
+* 优化累计设备量统计
+* 优化SDK I/O性能
+* 优化提升SDK稳定性
 
- VERSION 2.1.0
+
+
+VERSION 1.2.4.4
 -------------------------------------------
-* 增加对arm64的优化支持
-* 增加若干接口的回调函数
-* 注册的逻辑优化
-* 注意:个别函数名替换"Location"为"Local"
+* Optimize the SDK registration process and improve the reach of notification messages
 
- VERSION 2.0.1
+版本 1.2.4.4
 -------------------------------------------
-* 修改SDK特性,增加对预定义标签的支持
-* 删除了一些无用的文件
+* 优化SDK注册流程，提升通知消息触达
 
- VERSION 2.0.0
+
+VERSION 1.2.4.3
 -------------------------------------------
-* 增加本地推送功能
-* 提高SDK的稳定性
+* Optimize SDK compatibility
 
- VERSION 1.0.3
+版本 1.2.4.3
 -------------------------------------------
-* 增加别名功能
+* 优化提升SDK兼容性
 
- VERSION 1.0.2
+VERSION 1.2.4.2
 -------------------------------------------
-* 切换到全新后台接口
-* SDK代码全面优化
+* fix a bug about obtaining the TPNS Token
 
- VERSION 1.0.1
+版本 1.2.4.2
 -------------------------------------------
-* 实现和XG兼容
+* 修复SDK获取TPNS Token的Bug
 
- VERSION 1.0.0
+VERSION 1.2.4.1
+-------------------------------------------
+* Add a log upload API
+* Optimize and improve SDK stability
+* Optimize SDK compatibility
+
+版本 1.2.4.1
+-------------------------------------------
+* 新增日志上传接口
+* 优化提升SDK稳定性
+* 优化提升SDK兼容性
+
+VERSION 1.2.4.0
+-------------------------------------------
+* Fix the problem of single account binding callback
+* Improve SDK compatibility with third parties Notification Plugin
+* Newly differentiated device push environment to optimize statistics
+* Optimize the cache logic for replacing App information
+* Improve SDK registration success rate
+
+
+版本 1.2.4.0
+-------------------------------------------
+* 修复单账号绑定回调的问题
+* 提升SDK与第三方的兼容性
+* 新增区分设备推送环境，从而优化统计数据
+* 优化更换App信息的缓存逻辑
+* 提升SDK注册成功率
+
+VERSION 1.2.3.0
+-------------------------------------------
+* Fix a bug about DeviceToken changed
+
+版本 1.2.3.0
+-------------------------------------------
+* 修复一个当设备Token变化时出现的bug
+
+
+VERSION 1.2.2.1
+-------------------------------------------
+* Fix a bug about network connecting when other apis are called before SDK starting
+
+版本 1.2.2.1
+-------------------------------------------
+* 修复一个当SDK未启动完成就调用其他接口而产生的网络连接的Bug
+
+
+VERSION 1.2.2.0
+-------------------------------------------
+* Fix a bug about registering device to the TPNS server on iOS13
+* Fix a bug about network connecting when the App status changed
+
+版本 1.2.2.0
+-------------------------------------------
+* 修复iOS13上无法注册的问题
+* 修复App状态切换时的网络连接的问题
+
+
+VERSION 1.2.1.2
+-------------------------------------------
+* Fix a bug about clicking message statistics
+
+版本 1.2.1.2
+-------------------------------------------
+* 修复点击数据统计bug
+
+
+VERSION 1.2.1.1
+-------------------------------------------
+* 修复标签绑定接口在网络连接状态变化时存在的bug
+
+VERSION 1.2.1.0
+-------------------------------------------
+* 新增查询信鸽服务生成的Token接口
+* 修复单账号绑定失败的问题
+
+VERSION 1.2.0.0
+-------------------------------------------
+* 新增独立上报数据SDK
+* 优化终端注册服务
+* 更新DeviceToken解析逻辑
+
+VERSION 1.1.0.1
+-------------------------------------------
+* 修复用户名和密码认证逻辑
+* 修复动态加载SDK的缺陷
+
+VERSION 1.1.0.0
+-------------------------------------------
+* 增加PushKit插件
+* 优化SDK启动耗时
+
+
+VERSION 1.0.1.0
+-------------------------------------------
+* 增加长连接的推送
+
+
+ VERSION 1.0.1.0
+-------------------------------------------
+* 增加对PushKit的插件化支持，目前功能仅限注册，注销，上报
+
+
+ VERSION 1.0.0.0
 -------------------------------------------
 * 初始版本
