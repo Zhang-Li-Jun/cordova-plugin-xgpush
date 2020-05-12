@@ -8,6 +8,7 @@
   <repo>https://github.com/osvlabs/cordova-plugin-xgpush.git</repo>
   <issue>https://github.com/osvlabs/cordova-plugin-xgpush/issues</issue>
    
+  <preference name="XG_OLD_ACCESS_ID" />
   <preference name="ACCESS_ID" />
   <preference name="ACCESS_KEY" />
   <preference name="OLD_IOS_ACCESS_ID" />
@@ -34,6 +35,7 @@
       </feature>
     </config-file>
     <config-file target="AndroidManifest.xml" parent="/manifest/application">
+        <meta-data android:name="XG_OLD_ACCESS_ID" android:value="\$XG_OLD_ACCESS_ID" />
         <meta-data android:name="XM_APPID" android:value="\$XM_APPID" />
         <meta-data android:name="XM_APPKEY" android:value="\$XM_APPKEY" />
         <meta-data android:name="MZ_APPID" android:value="\$MZ_APPID" />

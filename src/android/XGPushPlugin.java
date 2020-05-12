@@ -76,6 +76,14 @@ public class XGPushPlugin extends CordovaPlugin {
             registerPush(data, callbackContext);
             return true;
         }
+        if ("bindAccount".equals(action)) {
+            bindAccount(data, callbackContext);
+            return true;
+        }
+        if ("delAccount".equals(action)) {
+            delAccount(data, callbackContext);
+            return true;
+        }
         if ("unRegisterPush".equals(action)) {
             unRegisterPush(callbackContext);
             return true;
@@ -170,8 +178,56 @@ public class XGPushPlugin extends CordovaPlugin {
                         Log.d(TAG, "> register public");
                         XGPushManager.registerPush(context, reply);
                     } else {
+                        Log.d(TAG, "> 腾讯移动推送删除了带账号的注册API");
+                        XGPushManager.registerPush(context, reply);
+                        // Log.d(TAG, "> register private:" + account);
+                        // XGPushManager.registerPush(context, account, reply);
+                    }
+                } catch (Exception e) {
+                    Log.e(TAG, "register error:" + e.toString());
+                    callback.error(e.getMessage());
+                }
+            }
+        });
+    }
+
+    private void bindAccount(final JSONArray data, final CallbackContext callback) {
+        cordova.getThreadPool().execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    String account = (data != null && data.length() > 0) ? data.getString(0) : null;
+                    XGIOperateCallback reply = new XGPushCallback(callback);
+
+                    if (TextUtils.isEmpty(account)) {
+                        Log.d(TAG, "> account is null");
+                        callback.error("account is null");
+                    } else {
                         Log.d(TAG, "> register private:" + account);
-                        XGPushManager.registerPush(context, account, reply);
+                        XGPushManager.bindAccount(context, account, reply);
+                    }
+                } catch (Exception e) {
+                    Log.e(TAG, "register error:" + e.toString());
+                    callback.error(e.getMessage());
+                }
+            }
+        });
+    }
+
+    private void delAccount(final JSONArray data, final CallbackContext callback) {
+        cordova.getThreadPool().execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    String account = (data != null && data.length() > 0) ? data.getString(0) : null;
+                    XGIOperateCallback reply = new XGPushCallback(callback);
+
+                    if (TextUtils.isEmpty(account)) {
+                        Log.d(TAG, "> account is null");
+                        callback.error("account is null");
+                    } else {
+                        Log.d(TAG, "> register private:" + account);
+                        XGPushManager.delAccount(context, account, reply);
                     }
                 } catch (Exception e) {
                     Log.e(TAG, "register error:" + e.toString());

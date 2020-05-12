@@ -24,6 +24,10 @@ typedef void (^CallbackBlock)(void);
 - (void)addListener:(CDVInvokedUrlCommand *)command;
 - (void)registerPush:(CDVInvokedUrlCommand *)command;
 - (void)unRegisterPush:(CDVInvokedUrlCommand *)command;
+
+- (void)bindAccount:(CDVInvokedUrlCommand *)command;
+- (void)delAccount:(CDVInvokedUrlCommand *)command;
+
 - (void)getLaunchInfo:(CDVInvokedUrlCommand *)command;
 
 - (void)setTag:(CDVInvokedUrlCommand *)command;

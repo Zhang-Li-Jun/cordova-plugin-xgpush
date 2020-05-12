@@ -39,6 +39,14 @@ function XGPush () {
         exec(successCallback, errorCallback, "XGPush", "unRegisterPush", [account]);
     };
 
+    this.bindAccount = function (account, successCallback, errorCallback) {
+        exec(successCallback, errorCallback, "XGPush", "bindAccount", [account]);
+    };
+
+    this.delAccount = function (account, successCallback, errorCallback) {
+        exec(successCallback, errorCallback, "XGPush", "delAccount", [account]);
+    };
+
     this.setTag = function (tagName) {
         exec(null, null, "XGPush", "setTag", [tagName]);
     };

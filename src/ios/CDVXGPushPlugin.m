@@ -126,6 +126,30 @@ static CDVInvokedUrlCommand *currentCommand = nil;
                        type:XGPushTokenBindTypeAccount];
 }
 
+- (void)bindAccount:(CDVInvokedUrlCommand *)command {
+     NSString *account = [command.arguments objectAtIndex:0];
+    currentCommand = command;
+    NSLog(@"[XGPushPlugin] bindAccount: account = %@, token = %@", account, [[XGPushTokenManager defaultTokenManager] xgTokenString]);
+
+    if ([account respondsToSelector:@selector(length)] && [account length] > 0) {
+        NSLog(@"[XGPushPlugin] set account:%@", account);
+        [[XGPushTokenManager defaultTokenManager]
+            bindWithIdentifier:account
+                          type:XGPushTokenBindTypeAccount];
+    } else {
+        [self sendCallback:nil];
+    }
+}
+
+- (void)delAccount:(CDVInvokedUrlCommand *)command {
+    NSString *account = [command.arguments objectAtIndex:0];
+    NSLog(@"[XGPushPlugin] delAccount");
+    currentCommand = command;
+    [[XGPushTokenManager defaultTokenManager]
+        unbindWithIdentifer:account
+                       type:XGPushTokenBindTypeAccount];
+}
+
 - (void)getLaunchInfo:(CDVInvokedUrlCommand *)command {
     NSLog(@"[XGPushPlugin] getLaunchInfo");
     CDVPluginResult *result = nil;
