@@ -1,2 +1,10 @@
 **/.DS_Store
 .vscode
+sdk/android/.project
+sdk/android/.settings/org.eclipse.buildship.core.prefs
+sdk/android/.gradle/vcs-1/gc.properties
+sdk/android/.gradle/checksums/sha1-checksums.bin
+sdk/android/.gradle/checksums/checksums.lock
+*.properties
+*.lock
+sdk/android/.gradle/6.3/fileChanges/last-build.bin
