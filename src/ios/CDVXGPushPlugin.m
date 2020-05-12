@@ -67,7 +67,9 @@ static CDVInvokedUrlCommand *currentCommand = nil;
  */
 - (void)startApp:(uint32_t)assessId key:(NSString *)accessKey {
     NSLog(@"[XGPushPlugin] starting with access id: %u, access key: %@", assessId, accessKey);
-    [XGForFreeVersion defaultForFreeVersion].freeAccessId = 2200262432;
+    uint32_t freeAccessId = [[[[NSBundle mainBundle] objectForInfoDictionaryKey:@"XGPushMeta"]
+            valueForKey:@"OldAccessId"] intValue];
+    [XGForFreeVersion defaultForFreeVersion].freeAccessId = freeAccessId;
 
     [[XGPush defaultManager] startXGWithAppID:assessId
                                        appKey:accessKey
