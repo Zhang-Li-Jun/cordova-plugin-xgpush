@@ -10,6 +10,7 @@
    
   <preference name="ACCESS_ID" />
   <preference name="ACCESS_KEY" />
+  <preference name="OLD_IOS_ACCESS_ID" />
   <preference name="IOS_ACCESS_ID" />
   <preference name="IOS_ACCESS_KEY" />
   <preference name="HW_APPID" />
@@ -70,6 +71,8 @@
         <integer>$IOS_ACCESS_ID</integer>
         <key>AccessKey</key>
         <string>$IOS_ACCESS_KEY</string>
+        <key>OldAccessId</key>
+        <string>$OLD_IOS_ACCESS_ID</string>
       </dict>
     </config-file>
     <!-- Tencent XGPush SDK -->
