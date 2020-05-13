@@ -26,12 +26,12 @@ public class XGPushReceiver extends XGPushBaseReceiver {
         this.callback = callback;
     }
 
-    public void onResume(Context context, CordovaInterface cordova){
+    public void onResume(Context context, CordovaInterface cordova) {
         XGPushClickedResult click = XGPushManager.onActivityStarted(cordova.getActivity());
         Log.d(TAG, "onResume: ClickedResult = " + click);
 
         if (click != null) {
-            onNotifactionClickedResult(context, click);
+            onNotificationClickedResult(context, click);
         }
     }
 
@@ -45,6 +45,33 @@ public class XGPushReceiver extends XGPushBaseReceiver {
             data.put("customContent", message.getCustomContent());
         } catch (JSONException e) {
             Log.e(TAG, "onTextMessage", e);
+        }
+        sendMessage(data);
+    }
+
+    @Override
+    public void onNotificationClickedResult(Context context, XGPushClickedResult xgPushClickedResult) {
+        sendMessage(convertClickedResult(xgPushClickedResult));
+    }
+
+    @Override
+    public void onNotificationShowedResult(Context context, XGPushShowedResult message) {
+        JSONObject data = new JSONObject();
+        try {
+            String tmp = message.getCustomContent();
+            if (tmp != null && !tmp.equals("")) {
+                JSONObject customContent = new JSONObject(message.getCustomContent());
+                data.put("customContent", customContent);
+            }
+            data.put("type", "show");
+            data.put("activity", message.getActivity());
+            data.put("content", message.getContent());
+            data.put("title", message.getTitle());
+            data.put("msgId", message.getMsgId());
+            data.put("notifactionId", message.getNotifactionId());
+            data.put("notificationActionType", message.getNotificationActionType());
+        } catch (JSONException e) {
+            Log.e(TAG, "onNotifactionShowedResult", e);
         }
         sendMessage(data);
     }
@@ -95,6 +122,14 @@ public class XGPushReceiver extends XGPushBaseReceiver {
     }
 
     @Override
+    public void onSetAccountResult(Context context, int i, String s) {
+    }
+
+    @Override
+    public void onDeleteAccountResult(Context context, int i, String s) {
+    }
+
+    @Override
     public void onSetTagResult(Context context, int errorCode, String tagName) {
         JSONObject data = new JSONObject();
         try {
@@ -107,49 +142,22 @@ public class XGPushReceiver extends XGPushBaseReceiver {
         sendMessage(data);
     }
 
-    @Override
-    public void onNotifactionClickedResult(Context context, XGPushClickedResult message) {
-        sendMessage(convertClickedResult(message));
-    }
-
-    @Override
-    public void onNotifactionShowedResult(Context context, XGPushShowedResult message) {
-        JSONObject data = new JSONObject();
-        try {
-            String tmp=message.getCustomContent();
-            if(tmp!=null&&!tmp.equals("")){
-                JSONObject customContent=new JSONObject(message.getCustomContent());
-                data.put("customContent", customContent);
-            }
-            data.put("type", "show");
-            data.put("activity", message.getActivity());
-            data.put("content", message.getContent());
-            data.put("title", message.getTitle());
-            data.put("msgId", message.getMsgId());
-            data.put("notifactionId", message.getNotifactionId());
-            data.put("notificationActionType", message.getNotificationActionType());
-        } catch (JSONException e) {
-            Log.e(TAG, "onNotifactionShowedResult", e);
-        }
-        sendMessage(data);
-    }
-
     private void sendMessage(final JSONObject data) {
         PluginResult results = new PluginResult(PluginResult.Status.OK, data);
         results.setKeepCallback(true);
         callback.sendPluginResult(results);
     }
 
-    public static JSONObject convertClickedResult(XGPushClickedResult message){
+    public static JSONObject convertClickedResult(XGPushClickedResult message) {
         JSONObject data = new JSONObject();
 
-        if(message == null)
+        if (message == null)
             return data;
 
         try {
-            String tmp=message.getCustomContent();
-            if(tmp!=null&&!tmp.equals("")){
-                JSONObject customContent=new JSONObject(message.getCustomContent());
+            String tmp = message.getCustomContent();
+            if (tmp != null && !tmp.equals("")) {
+                JSONObject customContent = new JSONObject(message.getCustomContent());
                 data.put("customContent", customContent);
             }
             data.put("type", "click");
