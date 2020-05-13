@@ -16,6 +16,8 @@ import com.tencent.android.tpush.XGLocalMessage;
 import com.tencent.android.tpush.XGPushClickedResult;
 import com.tencent.android.tpush.XGPushConfig;
 import com.tencent.android.tpush.XGPushConstants;
+import com.tencent.android.tpush.common.Constants;
+
 import com.tencent.android.tpush.XGPushManager;
 
 import android.content.Context;
@@ -127,8 +129,8 @@ public class XGPushPlugin extends CordovaPlugin {
 
         XGPushReceiver receiver = new XGPushReceiver(callbackContext);
         IntentFilter filter = new IntentFilter();
-        filter.addAction(XGPushConstants.ACTION_PUSH_MESSAGE);
-        filter.addAction(XGPushConstants.ACTION_FEEDBACK);
+        filter.addAction(Constants.ACTION_PUSH_MESSAGE);
+        filter.addAction(Constants.ACTION_FEEDBACK);
         context.registerReceiver(receiver, filter);
     }
 
