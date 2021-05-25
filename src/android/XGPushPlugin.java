@@ -62,6 +62,7 @@ public class XGPushPlugin extends CordovaPlugin {
         XGPushConfig.setMiPushAppKey(context, xmKey);
         XGPushConfig.setMzPushAppId(context, mzId);
         XGPushConfig.setMzPushAppKey(context, mzKey);
+        XGPushConfig.enableOtherPush(context, true);
     }
 
     @Override

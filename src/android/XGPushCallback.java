@@ -1,5 +1,7 @@
 package net.sunlu.xgpush;
 
+import android.util.Log;
+
 import org.apache.cordova.CallbackContext;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,6 +26,7 @@ public class XGPushCallback implements XGIOperateCallback {
     } catch (JSONException e) {
       e.printStackTrace();
     }
+    Log.e("XGPushCallback", "onFail " + errCode + " " + msg);
     this.callback.error(results);
   }
 
@@ -36,6 +39,7 @@ public class XGPushCallback implements XGIOperateCallback {
     } catch (JSONException e) {
       e.printStackTrace();
     }
+    Log.i("XGPushCallback",  "onSuccess " + flag);
     this.callback.success(results);
   }
 

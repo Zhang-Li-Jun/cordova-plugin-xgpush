@@ -1,9 +1,9 @@
 {
-  "name": "@osvlabs/cordova-plugin-xgpush",
+  "name": "cordova-plugin-xgpush",
   "version": "5.0.1",
   "description": "腾讯信鸽推送服务：http://xg.qq.com/",
   "cordova": {
-    "id": "cordova-plugin-xgpush-osvlabs",
+    "id": "cordova-plugin-xgpush",
     "platforms": [
       "android",
       "ios"
@@ -16,12 +16,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/osvlabs/cordova-plugin-xgpush"
+    "url": "https://github.com/LiuHaoFight/cordova-plugin-xgpush"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/osvlabs/cordova-plugin-xgpush/issues"
+    "url": "https://github.com/LiuHaoFight/cordova-plugin-xgpush/issues"
   },
-  "homepage": "https://github.com/osvlabs/cordova-plugin-xgpush#readme"
+  "homepage": "https://github.com/LiuHaoFight/cordova-plugin-xgpush#readme"
 }

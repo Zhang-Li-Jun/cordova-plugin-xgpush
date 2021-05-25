@@ -86,7 +86,7 @@ public class XGPushReceiver extends XGPushBaseReceiver {
             data.put("type", "register");
             data.put("accessId", message.getAccessId());
             data.put("account", message.getAccount());
-            data.put("deviceId", message.getDeviceId());
+//            data.put("deviceId", message.getDeviceId());
             data.put("ticket", message.getTicket());
             data.put("ticketType", message.getTicketType());
             data.put("token", message.getToken());
@@ -129,7 +129,17 @@ public class XGPushReceiver extends XGPushBaseReceiver {
     public void onDeleteAccountResult(Context context, int i, String s) {
     }
 
-    @Override
+  @Override
+  public void onSetAttributeResult(Context context, int i, String s) {
+    
+  }
+
+  @Override
+  public void onDeleteAttributeResult(Context context, int i, String s) {
+
+  }
+
+  @Override
     public void onSetTagResult(Context context, int errorCode, String tagName) {
         JSONObject data = new JSONObject();
         try {
