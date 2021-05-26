@@ -34,7 +34,7 @@
 打开控制台，进入 Cordova 项目目录，输入：
 
 ```bash
-cordova plugin add @osvlabs/cordova-plugin-xgpush@latest --variable ACCESS_ID="Your ANDROID ID" --variable ACCESS_KEY="Your ANDROID Key" --variable IOS_ACCESS_ID="Your ID" --variable IOS_ACCESS_KEY="Your Key"  --variable PACKAGE_NAME="Xiao mi package name" --variable XM_APPID="XMID" --variable XM_APPKEY="XMKEY" --variable HW_APPID="HW appid" --variable MZ_APPID="MZ_ID" --variable MZ_APPKEY="MZ_KEY"
+cordova plugin add cordova-plugin-xgpush@latest --variable ACCESS_ID="Your ANDROID ID" --variable ACCESS_KEY="Your ANDROID Key" --variable IOS_ACCESS_ID="Your ID" --variable IOS_ACCESS_KEY="Your Key"  --variable PACKAGE_NAME="Xiao mi package name" --variable XM_APPID="XMID" --variable XM_APPKEY="XMKEY" --variable HW_APPID="HW appid" --variable MZ_APPID="MZ_ID" --variable MZ_APPKEY="MZ_KEY"
 ```
 
 ## ~~iOS 特别处理~~
