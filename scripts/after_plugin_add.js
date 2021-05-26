@@ -23,6 +23,14 @@ module.exports = function (context) {
 
     var modifyIt = function (file) {
         var data = fs.readFileSync(file, 'utf-8');
+        console.log("-----modifyIt-------" + JSON.stringify(context.opts.cli_variables));
+        if(!context.opts.cli_variables) {
+            return;
+        }
+        if(!context.opts.cli_variables.ACCESS_ID) {
+            return;
+        }
+        console.log("-----modifyIt-------ACCESS_ID" + JSON.stringify(context.opts.cli_variables.ACCESS_ID));
         data = data.replace('ANDROID_ACCESS_ID', context.opts.cli_variables.ACCESS_ID);
         data = data.replace('ANDROID_ACCESS_KEY', context.opts.cli_variables.ACCESS_KEY);
         data = data.replace('xiaomi_package_name', context.opts.cli_variables.PACKAGE_NAME);
