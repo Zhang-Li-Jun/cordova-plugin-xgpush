@@ -90,6 +90,7 @@
     <source-file src="src/ios/CDVXGPushPlugin.m" />
     <!-- Dependencies -->
     <framework src="sdk/ios/XGMTACloud.framework" custom="true" />
+    <framework src="sdk/ios/TPNSInAppMessage.framework" custom="true" />
     <framework src="libz.tbd" />
     <framework src="CoreData.framework" />
     <framework src="CFNetwork.framework" />

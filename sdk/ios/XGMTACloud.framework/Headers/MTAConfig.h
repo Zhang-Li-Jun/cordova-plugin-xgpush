@@ -116,11 +116,6 @@ typedef enum {
 @property uint32_t maxStoreEventCount;
 
 /**
- 一次最大加载未发送的缓存消息，默认30条
- */
-@property uint32_t maxLoadEventCount;
-
-/**
  统计上报策略为BATCH时，触发上报时最小缓存消息数，默认30条
  */
 @property uint32_t minBatchReportCount;
@@ -164,7 +159,7 @@ typedef enum {
  设备的idfa，建议有广告权限的app设置此字段
  默认为空
  */
-@property (nonatomic, copy) NSString *ifa;
+//@property (nonatomic, copy) NSString *ifa;
 
 /**
  用户自定义的App版本
@@ -209,6 +204,21 @@ typedef enum {
  */
 - (NSString *)getCustomProperty:(NSString *)key default:(NSString *)v;
 
+/**
+自定义上报地址
+*/
 @property (nonatomic, copy) NSString *statReportURL;
+
+/// tpns accessID
+@property (nonatomic, assign) uint32_t tpnsAccessID;
+
+/// tpns sdk版本
+@property (nonatomic, copy) NSString *tpnsSDKVersion;
+
+/// 是否检查上报域名
+@property (nonatomic, assign) BOOL checkReportDomain;
+
+/// 当前允许的上报域名
+@property (nonatomic, copy) NSString *enableReportDomainStr;
 
 @end
