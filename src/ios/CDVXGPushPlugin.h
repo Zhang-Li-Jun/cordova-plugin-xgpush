@@ -39,7 +39,7 @@ typedef void (^CallbackBlock)(void);
 - (void)getToken:(CDVInvokedUrlCommand *)command;
 - (void)setAccessInfo:(CDVInvokedUrlCommand *)command;
 - (void)stopNotification:(CDVInvokedUrlCommand *)command;
-
+- (void)exitApp:(CDVInvokedUrlCommand *)command;
 @property(nonatomic, copy) NSString *callbackId;
 
 @end

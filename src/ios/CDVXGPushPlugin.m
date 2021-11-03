@@ -214,6 +214,10 @@ static CDVInvokedUrlCommand *currentCommand = nil;
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 
+- (void)exitApp:(CDVInvokedUrlCommand *)command {
+    abort();
+}
+
 - (void)setAccessInfo:(CDVInvokedUrlCommand *)command {
     uint32_t accessId = [[command.arguments objectAtIndex:0] intValue];
     NSString *accessKey = [command.arguments objectAtIndex:1];

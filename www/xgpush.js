@@ -63,6 +63,10 @@ function XGPush () {
         exec(successCallback, errorCallback, "XGPush", "enableDebug", [debugMode]);
     };
 
+    this.exitApp = function () {
+        exec(null, null, "XGPush", "exitApp", []);
+    };
+
     this.getLaunchInfo = function (successCallback) {
         exec(function (event) {
             if (event && event.customContent && typeof event.customContent === "string") {
