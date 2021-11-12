@@ -3,12 +3,12 @@ repositories {
 }
 ext.cdvMinSdkVersion = 20
 project.ext {
-    defaultMinSdkVersion=20 
+    defaultMinSdkVersion=20
 }
 android {
     defaultConfig {
         ndk {
-            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a' 
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a'
         }
         manifestPlaceholders = [
                 XG_ACCESS_ID:"ANDROID_ACCESS_ID",
@@ -21,7 +21,7 @@ android {
 
 dependencies {
     //增加以下依赖
-    implementation 'com.tencent.tpns:tpns:1.2.3.1-release'   
+    implementation 'com.tencent.tpns:tpns:1.2.3.1-release'
     implementation 'com.tencent.jg:jg:1.1'
     implementation 'com.tencent.tpns:xiaomi:1.1.6.1-release'
     implementation 'com.tencent.tpns:meizu:1.1.6.1-release'
@@ -30,5 +30,5 @@ dependencies {
     implementation 'com.tencent.tpns:fcm:1.1.6.1-release'
     implementation  'com.google.firebase:firebase-messaging:17.6.0'
     //需要集成fcm增加以下依赖并将google-services.json放进你应用model的根路径下:
-    // apply plugin: 'com.google.gms.google-services'
+    apply plugin: 'com.google.gms.google-services'
 }
